@@ -40,18 +40,18 @@ public class ZeroOnePack {
      */
     public static void knapsack (int[] v, int[] w, int c, int n, int[][] m) {
         //初始化
-        int Max = Math.min(w[n] - 1, c);
-        for (int i = 0; i <= Max; i++)
+        int iMax = Min(w[n] - 1, c);
+        for (int i = 0; i <= iMax; i++)
             m[n][i] = 0;
         for (int i = w[n]; i <= c; i++)
             m[n][i] = v[n];
 
         for (int i = n - 1; i > 1; i--) {
-            Max = Math.min(w[i] - 1, c);
-            for (int j = 0; j <= Max; j++)
+            iMax = Min(w[i] - 1, c);
+            for (int j = 0; j <= iMax; j++)
                 m[i][j] = m[i + 1][j];
             for (int j = w[i]; j <= c; j++)
-                m[i][j] = Math.max(m[i + 1][j], m[i + 1][j - w[i]] + v[i]);
+                m[i][j] = Max(m[i + 1][j], m[i + 1][j - w[i]] + v[i]);
         }
     }
 
@@ -67,5 +67,13 @@ public class ZeroOnePack {
                 c -= w[i];
             }
         x[n] = (m[n][c] > 0) ? 1 : 0;
+    }
+
+    public static int Min (int a, int b) {
+        return a < b ? a : b;
+    }
+
+    public static int Max (int a, int b) {
+        return a > b ? a : b;
     }
 }
