@@ -12,7 +12,7 @@ public class Perm {
             for (int i = 0; i <= m; i++) {
                 System.out.print(list[i] + " ");
             }
-            System.out.println();
+            //System.out.println();
         } else {
             for (int i = k; i <= m; i++) {
                 swap(list, k, i);
