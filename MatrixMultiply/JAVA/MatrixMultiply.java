@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 
-class MatrixMultiply {
+public class MatrixMultiply {
 
     static int[][] s = new int[100][100];
 
