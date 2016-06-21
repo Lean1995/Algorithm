@@ -45,7 +45,7 @@ class MatrixMultiply {
         int u = RMC(i, i, p) + RMC(i + 1, j, p) + p[i - 1] * p[i] * p[j];
         s[i][j] = i;
         for (int k = i + 1; k < j; k++) {
-            int t = RMC(i, k, p) + RMC(k + 1, j, p) + p[i - 1] * p[i] * p[j];
+            int t = RMC(i, k, p) + RMC(k + 1, j, p) + p[i - 1] * p[k] * p[j];
             if (t < u) {
                 u = t;
                 s[i][j] = k;
