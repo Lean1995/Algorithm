@@ -53,6 +53,9 @@ public class ZeroOnePack {
             for (int j = w[i]; j <= c; j++)
                 m[i][j] = Max(m[i + 1][j], m[i + 1][j - w[i]] + v[i]);
         }
+        m[1][c] = m[2][c];
+        if (c >= w[1])
+            m[1][c] = Max(m[1][c], m[2][c - w[1]] + v[1]);
     }
 
     /*
